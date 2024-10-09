@@ -1,0 +1,15 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 24px;
+  row-gap: 24px;
+  list-style: none;
+}
+
+.galleryCard {
+  position: relative;
+  width: calc((100% - 60px) / 5);
+  border: 1px solid #808080;
+  border-radius: 10px;
+}

@@ -10,7 +10,6 @@ const ImageGallery = ({ items }) => {
           <ImageCard data={item} />
         </li>
       ))}
-      ;
     </ul>
   );
 };

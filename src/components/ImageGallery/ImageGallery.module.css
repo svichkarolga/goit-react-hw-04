@@ -5,6 +5,7 @@
   column-gap: 24px;
   row-gap: 24px;
   list-style: none;
+  /* width: calc((100% - 60px) / 5); */
 }
 
 .galleryCard {
@@ -12,4 +13,5 @@
   width: calc((100% - 60px) / 5);
   border: 1px solid #808080;
   border-radius: 10px;
+  background-color: aqua;
 }

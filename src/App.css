@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -14,7 +14,7 @@ function App() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [topic, setTopic] = useState("");
-  const [totalPages, setTotalPages] = useState(999);
+  const [totalPages, setTotalPages] = useState(0);
 
   const handleSearch = async (newTopic) => {
     setPhotos([]);
@@ -72,12 +72,15 @@ function App() {
         <p>Whoops, something went wrong! Please try reloading this page!</p>
       )}
       {photos.length > 0 && !loading && (
-        // photos.length > 0 && !loading && page < totalPages && (
         <button type="button" onClick={handleLoadMore}>
           Load more
         </button>
       )}
-      {page >= totalPages && <p>The end!</p>}
+      {page < totalPages && (
+        <button type="button" onClick={handleLoadMore}>
+          Load more
+        </button>
+      )}
       <div>
         <Toaster
           toastOptions={{

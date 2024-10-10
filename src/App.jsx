@@ -35,7 +35,8 @@ function App() {
       try {
         setLoading(true);
         setError(false);
-        const data = await fetchPhotos(topic, page);
+        const { results, total_pages } = await fetchPhotos(topic, page);
+        // const data = await fetchPhotos(topic, page);
         if (page === 1) {
           setTotalPages(data.total_pages);
         }

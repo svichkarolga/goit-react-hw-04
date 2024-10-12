@@ -10,5 +10,6 @@
 
 .btn {
   background-color: aqua;
-  border-color: black;
+  border-color: rgb(246, 52, 139);
+  color: black;
 }

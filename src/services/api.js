@@ -8,6 +8,5 @@ export const fetchPhotos = async (topic, currentPage) => {
     `/search/photos?client_id=${CLIENT_ID}&query=${topic}&page=${currentPage}&per_page=12`
   );
   console.log(response);
-  // return response.data.results;
   return response.data;
 };

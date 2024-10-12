@@ -7,6 +7,7 @@ import { fetchPhotos } from "./services/api";
 import { DNA } from "react-loader-spinner";
 import SearchBar from "./components/SearchBar/SearchBar";
 import toast, { Toaster } from "react-hot-toast";
+import ImageModal from "./components/ImageModal/ImageModal";
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -15,6 +16,8 @@ function App() {
   const [page, setPage] = useState(1);
   const [topic, setTopic] = useState("");
   const [totalPages, setTotalPages] = useState(0);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedImageUrl, setSelectedImageUrl] = useState({});
 
   const handleSearch = async (newTopic) => {
     setPhotos([]);
@@ -27,6 +30,15 @@ function App() {
     setPage(page + 1);
   };
 
+  const handleImageClick = (imageData) => {
+    setSelectedImageUrl(imageData); // Встановлюємо URL вибраного зображення
+    setModalIsOpen(true); // Відкриваємо модальне вікно
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false); // Закриваємо модальне вікно
+  };
+
   useEffect(() => {
     if (topic === "") {
       return;
@@ -36,13 +48,11 @@ function App() {
         setLoading(true);
         setError(false);
         const { results, total_pages } = await fetchPhotos(topic, page);
-        // const data = await fetchPhotos(topic, page);
         if (page === 1) {
-          setTotalPages(data.total_pages);
+          setTotalPages(total_pages);
         }
-
         setPhotos((prevPhotos) => {
-          return [...prevPhotos, ...data];
+          return [...prevPhotos, ...results];
         });
       } catch (error) {
         setError(true);
@@ -56,7 +66,9 @@ function App() {
   return (
     <div>
       <SearchBar onSubmit={handleSearch} />
-      {photos.length > 0 && <ImageGallery items={photos} />}
+      {photos.length > 0 && (
+        <ImageGallery items={photos} onImageClick={handleImageClick} />
+      )}
       {loading && (
         <div className="loader - wrapper">
           <DNA
@@ -72,13 +84,8 @@ function App() {
       {error && (
         <p>Whoops, something went wrong! Please try reloading this page!</p>
       )}
-      {photos.length > 0 && !loading && (
-        <button type="button" onClick={handleLoadMore}>
-          Load more
-        </button>
-      )}
-      {page < totalPages && (
-        <button type="button" onClick={handleLoadMore}>
+      {photos.length > 0 && !loading && page < totalPages && (
+        <button className="btn-load" type="button" onClick={handleLoadMore}>
           Load more
         </button>
       )}
@@ -96,6 +103,13 @@ function App() {
           containerStyle={{
             position: "relative",
           }}
+        />
+        <ImageModal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          imageUrl={selectedImageUrl.imageUrl}
+          author={selectedImageUrl.author}
+          description={selectedImageUrl.description}
         />
       </div>
     </div>

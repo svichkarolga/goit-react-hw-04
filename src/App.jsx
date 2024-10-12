@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import "./App.css";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import { fetchPhotos } from "./services/api";
-import { DNA } from "react-loader-spinner";
 import SearchBar from "./components/SearchBar/SearchBar";
 import toast, { Toaster } from "react-hot-toast";
 import ImageModal from "./components/ImageModal/ImageModal";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -71,18 +71,7 @@ function App() {
       {photos.length > 0 && (
         <ImageGallery items={photos} onImageClick={handleImageClick} />
       )}
-      {loading && (
-        <div className="loader - wrapper">
-          <DNA
-            visible={true}
-            height="80"
-            width="80"
-            ariaLabel="dna-loading"
-            wrapperStyle={{}}
-            wrapperClass="dna-wrapper"
-          />
-        </div>
-      )}
+      {loading && <Loader isLoading={loading} />}
       {error && (
         <ErrorMessage
           message={

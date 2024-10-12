@@ -45,10 +45,3 @@
   align-items: center;
   justify-content: center;
 }
-
-.btn-load {
-  background-color: aqua;
-  border-color: rgb(246, 52, 139);
-  color: black;
-  margin-top: 10px;
-}

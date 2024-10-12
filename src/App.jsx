@@ -8,6 +8,8 @@ import { DNA } from "react-loader-spinner";
 import SearchBar from "./components/SearchBar/SearchBar";
 import toast, { Toaster } from "react-hot-toast";
 import ImageModal from "./components/ImageModal/ImageModal";
+import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 
 function App() {
   const [photos, setPhotos] = useState([]);
@@ -82,12 +84,14 @@ function App() {
         </div>
       )}
       {error && (
-        <p>Whoops, something went wrong! Please try reloading this page!</p>
+        <ErrorMessage
+          message={
+            "Whoops, something went wrong! Please try reloading this page!"
+          }
+        />
       )}
       {photos.length > 0 && !loading && page < totalPages && (
-        <button className="btn-load" type="button" onClick={handleLoadMore}>
-          Load more
-        </button>
+        <LoadMoreBtn onClick={handleLoadMore} />
       )}
       <div>
         <Toaster

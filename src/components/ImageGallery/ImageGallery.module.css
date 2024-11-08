@@ -5,7 +5,7 @@
   column-gap: 24px;
   row-gap: 24px;
   list-style: none;
-  /* width: calc((100% - 60px) / 5); */
+  margin-top: 200px;
 }
 
 .galleryCard {

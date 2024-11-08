@@ -3,4 +3,39 @@
   border-color: rgb(246, 52, 139);
   color: black;
   margin-top: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+loadMore:hover {
+  animation: pulse 1.5s infinite;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(9, 234, 241, 0.5), 0 0 20px rgba(255, 76, 76, 0.5),
+      0 0 30px rgba(255, 76, 76, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 76, 76, 0.7), 0 0 30px rgba(255, 76, 76, 0.7),
+      0 0 40px rgba(255, 76, 76, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 76, 76, 0.5), 0 0 20px rgba(255, 76, 76, 0.5),
+      0 0 30px rgba(255, 76, 76, 0.5);
+  }
+}
+
+.title {
+  color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  animation: glow 2s infinite alternate;
 }

@@ -1,15 +1,69 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  padding: 25px 15px 25px;
+  z-index: 6;
+  background-color: black;
+  box-shadow: 8px 5px 5px rgb(0, 255, 238);
+}
+.boxForma {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .input {
   margin-right: 20px;
   width: 300px;
   height: 30px;
-  border-radius: 4px;
-  border: 1px solid black;
+  border-radius: 5px;
   font-size: 16px;
   padding-left: 10px;
+  border: 1px solid rgb(248, 243, 243);
 }
 
 .btn {
   background-color: aqua;
   border-color: rgb(246, 52, 139);
   color: black;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  animation: pulse 1.5s infinite;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(9, 234, 241, 0.5), 0 0 20px rgba(255, 76, 76, 0.5),
+      0 0 30px rgba(255, 76, 76, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 76, 76, 0.7), 0 0 30px rgba(255, 76, 76, 0.7),
+      0 0 40px rgba(255, 76, 76, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 76, 76, 0.5), 0 0 20px rgba(255, 76, 76, 0.5),
+      0 0 30px rgba(255, 76, 76, 0.5);
+  }
+}
+
+.title {
+  color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 5px rgba(178, 248, 3, 0.8), 0 0 10px rgba(249, 3, 3, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.4);
+  animation: glow 2s infinite alternate;
 }

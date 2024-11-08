@@ -17,20 +17,23 @@ const SearchBar = ({ onSubmit }) => {
   };
   return (
     <div>
-      <header>
-        <form onSubmit={handleSubmit}>
-          <input
-            className={styles.input}
-            type="text"
-            name="input"
-            autoComplete="off"
-            autoFocus
-            placeholder="Search images and photos"
-          />
-          <button className={styles.btn} type="submit">
-            Search
-          </button>
-        </form>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Search photos here</h1>
+        <div className={styles.boxForma}>
+          <form onSubmit={handleSubmit}>
+            <input
+              className={styles.input}
+              type="text"
+              name="input"
+              autoComplete="off"
+              autoFocus
+              placeholder="Search images and photos"
+            />
+            <button className={styles.btn} type="submit">
+              Search
+            </button>
+          </form>
+        </div>
       </header>
     </div>
   );

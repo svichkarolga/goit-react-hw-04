@@ -17,12 +17,14 @@ const ImageModal = ({
       style={{
         overlay: {
           backgroundColor: "rgba(0, 0, 0, 0.5)",
+          zIndex: "1500",
         },
         content: {
           top: "50%",
           left: "50%",
           right: "auto",
           bottom: "auto",
+          zIndex: "2000",
           marginRight: "-50%",
           transform: "translate(-50%, -50%)",
           padding: "20px", // Без відступів для зображення
